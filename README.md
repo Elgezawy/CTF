@@ -11,3 +11,4 @@ binwalk --extract --d=".*" file
 strace >> system calls 
 ltrace >> functions 
 gdb >> depugger 
+ 
