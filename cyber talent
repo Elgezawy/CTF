@@ -1,0 +1,6 @@
+#Digital Forensics
+-Cypher Anxiety : pcap file >> wireshark -- find conversation 
+                  read better by strings >> get port 7070 and passwrod 
+                  extract row date >> use cybercat to decrtpt
+                  cybercat -l -k paaswod -p port < cyber  --1
+                  netcat localhost port > decrpt          --2
