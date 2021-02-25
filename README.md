@@ -15,4 +15,12 @@ zsteg image >> lesst significate bite
 strace >> system calls 
 ltrace >> functions 
 gdb >> depugger 
+
+
+
+
+
+
+
+
  
