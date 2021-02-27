@@ -17,7 +17,8 @@ ltrace >> functions
 gdb >> depugger 
 
 
-
+-web security
+javascript obfestecation : https://filipemgs.github.io/poisonjs/
 
 
 
