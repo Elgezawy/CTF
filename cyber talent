@@ -4,3 +4,5 @@
                   extract row date >> use cybercat to decrtpt
                   cybercat -l -k paaswod -p port < cyber  --1
                   netcat localhost port > decrpt          --2
+ 
+ 
