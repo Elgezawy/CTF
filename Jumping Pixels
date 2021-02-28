@@ -1,0 +1,76 @@
+using System;
+using System.IO;
+using System.Security.Cryptography;
+
+
+namespace Rextester
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            //Your code goes here
+            Mixer one = new Mixer();
+            Console.WriteLine(one.Encrypt("Ready"));
+        }
+    }
+    public class Mixer
+    {
+        public static byte[] EncryptStringToBytes(string plainText, byte[] Key, byte[] IV)
+        {
+            if (plainText == null || plainText.Length <= 0)
+            {
+                throw new ArgumentNullException("plainText");
+            }
+            if (Key == null || Key.Length == 0)
+            {
+			throw new ArgumentNullException("Key");
+            }
+            if (IV == null || IV.Length == 0)
+            {
+			throw new ArgumentNullException("IV");
+            }
+            byte[] result;
+            using (RijndaelManaged rijndaelManaged = new RijndaelManaged())
+            {
+                rijndaelManaged.Key = Key;
+                rijndaelManaged.IV = IV;
+                ICryptoTransform transform = rijndaelManaged.CreateEncryptor(rijndaelManaged.Key, rijndaelManaged.IV);
+                using (MemoryStream memoryStream = new MemoryStream())
+                {
+                    using (CryptoStream stream = new CryptoStream)
+                    (memoryStream, transform, CryptoStreamMode.Write));
+                    {
+                        using (StreamWriter streamWriter = new StreamWriter(stream))
+                        {
+                             streamWriter.Write(plainText);
+                        }
+                        return memoryStream.ToArray();
+                    }
+                }
+            }
+            return result;
+
+	public string Encrypt(string input)
+	{
+        string result;
+		try
+		{
+			string plainText = "Here is some data to encrypt!";
+			using (RijndaelManaged rijndaelManaged = new RijndaelManaged())
+            {
+                rijndaelManaged.Key = Convert.FromBase64String("2SPmCULv7pF5eq4ZEXAMmOj/AoSfNB9FlY5gjNIa3Nw=");
+                rijndaelManaged.IV = Convert.FromBase64String("Qs+tOYyZH3K3W7lGlCquPg==");
+                return Convert.ToBase64String(EncryptStringToBytes(plainText, rijndaelManaged.Key, rijndaelManaged.IV));
+            }
+        }
+		catch (Exception ex)
+		{
+			Console.WriteLine("Error: {0}", ex.Message);
+			return "";
+		}
+        return result;
+       }
+    }
+  }
+}
