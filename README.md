@@ -19,8 +19,9 @@ gdb >> depugger
 
 -web security
 javascript obfestecation : https://filipemgs.github.io/poisonjs/
-
-
+xss >> <body onload=alert("ffffffff")>
+>> after we try XSS , HTML SQL and failed >>> LFI - Command Execution >> |pwd||
+ 
 
 
 
